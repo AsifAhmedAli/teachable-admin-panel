@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Koozai   Login</title>
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+
+  <!-- loading spinner -->
+
+  <div id="loadingSpinner" class="loader-container d-none">
+    <span class="loader"></span>
+  </div>
+
+<body class="">
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="row center-vertically mt-n5">
+          <div class="col-lg-5 mx-auto">
+            <div class="">
+              <div class="text-center">
+                <h1 class="h1 text-white mb-5 login-heading">Teachable</h1>
+                <h2 class="text-white">Admin User</h2>
+              </div>
+              <form class="user" id="loginForm">
+                <div class="form-group mb-4">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-transparent icons"><i class="fas fa-user bg-transparent text-white"></i></span>
+                    </div>
+                    <input type="email" class="form-control form-control-user rounded-0 bg-transparent text-white" name="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Email" style="color: white;"  required>
+                  </div>
+                </div>
+              
+                <div class="form-group mb-5">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-transparent icons"><i class="fas fa-user bg-transparent text-white"></i></span>
+                    </div>
+                    <input type="password" class="form-control form-control-user rounded-0 bg-transparent text-white" name="password" id="inputEmail" aria-describedby="emailHelp" placeholder="Login Password" required>
+                  </div>
+                </div>
+                <button id="login-button" class="btn btn-login rounded-0 btn-block">Login in now</button>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- model for success and error messages -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-white w-auto mx-auto">
+          <div class="modal-body show_message bg-dark text-center">
+            <p id="messageContent" class="text-center mt-3"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- base url file -->
+    <script src="./js/all.js"></script>
+      
+
+  <!-- Bootstrap core JavaScript-->
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+    
+    <script src="./js/auth.js"></script>
+
+ 
+
+
+  
+</body>
+
+</html>
+
+

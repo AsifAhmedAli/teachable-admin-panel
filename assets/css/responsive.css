@@ -1,0 +1,34 @@
+@media (max-width: 992px) {
+  header .navigator a {
+    font-size: 12px;
+  }
+  body {
+    font-size: 12px;
+  }
+  .login-bg {
+    background-size: 100% 100%;
+  }
+  .navigations-view .navigator .navigator-text {
+    font-size: 12px;
+  }
+  .h6,
+  h6 {
+    font-size: 0.8rem;
+  }
+  .h4,
+  h4 {
+    font-size: calc(1rem + 0.3vw);
+  }
+  .level-memberships .membership .membership-detail h5 {
+    font-size: 14px;
+  }
+  .level-memberships .membership .membership-detail h6 {
+    font-size: 12px;
+  }
+  .level-memberships .membership .membership-detail p {
+    font-size: 10px;
+  }
+  header .page-title {
+    font-size: 13px;
+  }
+}

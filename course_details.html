@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Custom fonts for this template -->
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Custom styles for this page -->
+    <link
+      href="vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Course Details</title>
+    <!-- Add your stylesheets, Bootstrap, etc. here -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-y: auto;
+        }
+
+        #videoPlayerContainer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 9999; /* Adjust the z-index value as needed */
+            width: 50vw;
+            height: 80vh;
+        }
+
+        #videoPlayerContainer video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Optional: maintain aspect ratio */
+            border-radius: 10px;
+        }
+
+        #closeButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 9999;
+        }
+
+        #videoList {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 70px;
+            padding: 20px;
+        }
+
+        .video-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.video-card img {
+    width: 100%;
+    height: auto;
+}
+
+.video-card .card-body {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.video-card .card-body h5 {
+    margin-bottom: 10px;
+}
+
+
+
+        
+    </style>
+</head>
+
+<body>
+
+    
+  <div id="loadingSpinner" class="loader-container d-none">
+    <span class="loader"></span>
+  </div>
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="index.html"
+        >
+          <div class="sidebar-brand-icon rotate-n-15">Teachable</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+       
+        <li class="nav-item active">
+          <a class="nav-link" href="all_teachers.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>All Teachers</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="all_students.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>All Students</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="all_courses.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>All Courses</span></a
+          >
+        </li>
+
+        <li
+          class="nav-item active logout"
+         
+        >
+          <a class="nav-link">
+            <span id="logout-button">Logout</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+      <!-- End of Sidebar -->
+
+    <div id="videoPlayerContainer">
+        <span id="closeButton" onclick="closeVideoPlayer()">&times;</span>
+        <video id="videoPlayer" controls>
+            <!-- Video source will be dynamically added here -->
+        </video>
+    </div>
+
+    <div class="container mt-5">
+        <h1>Course Details</h1>
+
+        <div id="videoList">
+            <!-- Video cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    <div class="loading" id="loader1" style="visibility: hidden">
+        Loading&#8230;
+    </div>
+    <!-- base url file -->
+    <script src="./js/all.js"></script>
+    <script src="./js/course_details.js"></script>
+    <script src="./js/authentication.js"></script>
+    <script src="./js/logout.js"></script>
+
+   
+</body>
+
+</html>
