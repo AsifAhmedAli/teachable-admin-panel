@@ -113,7 +113,7 @@ $(document).ready(function () {
 
         // Make an AJAX request to add a new course
         $.ajax({
-            url: `${baseurl}/api/admin/add-new-course`,
+            url: `${baseurl}/api/admin/create-course`,
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,
